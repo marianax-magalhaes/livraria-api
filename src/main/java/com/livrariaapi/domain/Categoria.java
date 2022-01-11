@@ -1,15 +1,18 @@
 package com.livrariaapi.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+
 @Data
 @EqualsAndHashCode(of="id)")
+@Entity
 public class Categoria {
 
     private static final long serialVersionUID = 1L;
@@ -22,4 +25,10 @@ public class Categoria {
 
     @OneToMany(mappedBy = "categoria")
     private List<Livro> livros =       new ArrayList<>();
+
+    public Categoria(Integer id, String nome, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 }
