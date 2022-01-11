@@ -1,5 +1,6 @@
 package com.livrariaapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,9 +21,13 @@ public class Livro implements Serializable {
     private String nome_autor;
     private String texto;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="categoria_id")
     private Categoria categoria;
+
+    public Livro() {
+    }
 
     public Livro(Integer id, String titulo, String nome_autor, String texto, Categoria categoria) {
         this.id = id;
