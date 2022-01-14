@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping(value="/categorias")
 public class CategoriaController {
 
     @Autowired
     private CategoriaService service;
 
-    @GetMapping("/{id}")
+    @GetMapping(value="/{id}")
     public ResponseEntity<Categoria> findById(@PathVariable Integer id){
         Categoria obj = service.findById(id);
         return ResponseEntity.ok().body(obj);

@@ -10,9 +10,10 @@ import javax.servlet.ServletRequest;
 @ControllerAdvice
 public class ContollerExceptionHandler {
 
-    @ExceptionHandler(ObjectNotFoundException.class)
-    public ResponseEntity<StandardError> objectNotFoundException(ObjectNotFoundException e, ServletRequest request){
+    @ExceptionHandler(ObjectNotFound.class)
+    public ResponseEntity<StandardError> objectNotFoundException(ObjectNotFound e, ServletRequest request){
         StandardError error = new StandardError(System.currentTimeMillis(), HttpStatus.NOT_FOUND.value(), e.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 }
+
