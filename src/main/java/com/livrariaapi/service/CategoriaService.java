@@ -1,6 +1,7 @@
 package com.livrariaapi.service;
 
 import com.livrariaapi.domain.Categoria;
+import com.livrariaapi.dtos.CategoriaDto;
 import com.livrariaapi.exceptions.ObjectNotFound;
 import com.livrariaapi.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,13 @@ public class CategoriaService {
         return repository.save(obj);
     }
 
+    public Categoria update(Integer id, CategoriaDto objDto) {
+        Categoria obj = findById(id);
+
+        obj.setNome(objDto.getNome());
+        obj.setDescricao(objDto.getDescricao());
+        return repository.save(obj);
+    }
 }
 
 
