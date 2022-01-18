@@ -1,5 +1,6 @@
 package com.livrariaapi.service;
 
+import com.livrariaapi.domain.Categoria;
 import com.livrariaapi.domain.Livro;
 import com.livrariaapi.exceptions.ObjectNotFound;
 import com.livrariaapi.repository.LivroRepository;
@@ -40,6 +41,15 @@ public class LivroService {
         if(newObj.getTitulo()==null)newObj.setTitulo(obj.getTitulo());
         if(newObj.getNome_autor()==null)newObj.setNome_autor(obj.getNome_autor());
         if(newObj.getTexto()==null)newObj.setTexto(obj.getTexto());
+    }
+
+    public Livro create(Integer id_cat, Livro obj) {
+        obj.setId(null);
+        //verificando se a categoria existe
+        Categoria cat = categoriaService.findById(id_cat);
+        //obj Livro conhecendo sua categoria
+        obj.setCategoria(cat);
+        return repository.save(obj);
     }
 }
 
