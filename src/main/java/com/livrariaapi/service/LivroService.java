@@ -27,6 +27,20 @@ public class LivroService {
         categoriaService.findById(id_cat);
         return repository.findAllByCategoria(id_cat);
     }
+
+    public Livro update(Integer id, Livro obj) {
+       //buscando livro existente
+        Livro newObj = findById(id);
+       // atualizando o livro trazido
+       updateData(newObj, obj) ;
+       return repository.save(newObj);
+    }
+
+    private void updateData(Livro newObj, Livro obj) {
+        if(newObj.getTitulo()==null)newObj.setTitulo(obj.getTitulo());
+        if(newObj.getNome_autor()==null)newObj.setNome_autor(obj.getNome_autor());
+        if(newObj.getTexto()==null)newObj.setTexto(obj.getTexto());
+    }
 }
 
 
