@@ -34,8 +34,14 @@ public class LivroController {
         return ResponseEntity.ok().body(listDto);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Livro> update(@PathVariable Integer id, @Valid @RequestBody Livro obj){
+        Livro newObj = service.update(id, obj);
+        return ResponseEntity.ok().body(newObj);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Livro> updateData(@PathVariable Integer id, @Valid @RequestBody Livro obj){
         Livro newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
