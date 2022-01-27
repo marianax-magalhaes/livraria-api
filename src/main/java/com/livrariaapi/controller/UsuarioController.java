@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin("*")
 public class UsuarioController {
 
     @Autowired
     private UsuarioService service;
 
     @PostMapping("/cadastro")
+    @CrossOrigin("*")
     public Usuario registerUser(@RequestBody Usuario user) throws Exception{
         String tempEmail = user.getEmail();
 
@@ -28,6 +28,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
+    @CrossOrigin("*")
     public Usuario login(@RequestBody Usuario user) throws Exception{
         String tempEmail = user.getEmail();
         String tempSenha = user.getSenha();
