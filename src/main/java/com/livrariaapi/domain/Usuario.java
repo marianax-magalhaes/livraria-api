@@ -23,9 +23,13 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_user;
 
-    @NotEmpty(message="Campo NOME DE USUARIO é obrigatório")
-    @Length(min=3,max=50, message="Campo NOME DE USUARIO deve ter entre 3 e 50 caracteres")
+    @NotEmpty(message="Campo NOME é obrigatório")
+    @Length(min=3,max=50, message="Campo NOME deve ter entre 3 e 50 caracteres")
     private String nome;
+
+    @NotEmpty(message="Campo EMAIL é obrigatório")
+    @Length(min=3,max=50, message="Campo EMAIL deve ter entre 3 e 50 caracteres")
+    private String email;
 
     @NotEmpty(message="Campo SENHA é obrigatório")
     @Length(min=3,max=50, message="Campo SENHA deve ter entre 6 e 50 caracteres")
