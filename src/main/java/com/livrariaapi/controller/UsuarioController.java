@@ -16,10 +16,10 @@ public class UsuarioController {
     @PostMapping("/cadastro")
     public Usuario registerUser(@RequestBody Usuario user) throws Exception{
         String tempEmail = user.getEmail();
-        if(tempEmail != null && "".equals(tempEmail)){
+        if(tempEmail != null && !"".equals(tempEmail)){
             Usuario userObj = service.fetchUserByEmail(tempEmail);
             if(userObj != null){
-                throw new Exception("Usuário com e-mail " + tempEmail + "já existe!");
+                throw new Exception("Usuário com e-mail " + tempEmail + " já existe!");
             }
         }
         Usuario userObj = null;
