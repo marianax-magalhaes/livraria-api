@@ -18,7 +18,23 @@ public class UsuarioService {
     public Usuario fetchUserByEmail(String email){
         return repository.findByEmail(email);
     }
+
+    public Usuario fetchUserByEmailAndSenha(String email, String senha){
+        return repository.findByEmailAndSenha(email,senha);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
