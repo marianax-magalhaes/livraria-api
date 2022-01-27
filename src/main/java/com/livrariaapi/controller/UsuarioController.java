@@ -3,7 +3,7 @@ package com.livrariaapi.controller;
 import com.livrariaapi.domain.Usuario;
 import com.livrariaapi.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +13,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
 
-    @GetMapping("/cadastro")
+    @PostMapping("/cadastro")
     public Usuario registerUser(@RequestBody Usuario user) throws Exception{
         String tempEmail = user.getEmail();
         if(tempEmail != null && "".equals(tempEmail)){

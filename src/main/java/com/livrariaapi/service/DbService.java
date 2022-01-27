@@ -34,8 +34,8 @@ public class DbService {
         Livro l4 = new Livro(null, "Carandiru", "Drauzio Varela", "lorem ipsum", cat3);
         Livro l5 = new Livro(null, "Java para Dummies", "Barry Burd", "lorem ipsum", cat3);
 
-        Usuario user1 = new Usuario(null, "mariana@email.com", "123456");
-        Usuario user2 = new Usuario(null, "lucas@email.com", "123456");
+//        Usuario user1 = new Usuario(null, "mariana@email.com", "123456");
+//        Usuario user2 = new Usuario(null, "lucas@email.com", "123456");
 
         cat1.getLivros().addAll(Arrays.asList(l1, l5));
         cat2.getLivros().addAll(Arrays.asList(l2, l3));
@@ -43,7 +43,7 @@ public class DbService {
 
         this.categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
         this.livroRepository.saveAll(Arrays.asList(l1, l2, l3, l4, l5));
-        this.usuarioRepository.saveAll(Arrays.asList(user1, user2));
+//        this.usuarioRepository.saveAll(Arrays.asList(user1, user2));
     }
 }
 
